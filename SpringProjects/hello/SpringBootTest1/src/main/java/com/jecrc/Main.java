@@ -1,0 +1,21 @@
+package com.jecrc;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+
+        OrderService order =
+                context.getBean(OrderService.class);
+
+        order.payUsingDefault(1500);
+
+        order.payUsingCard(2500);
+
+        context.close();
+    }
+}
